@@ -1,25 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import Button from "react-bootstrap/Button";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { useState } from "react";
 
-function App() {
+import Profile from "./Profile";
+
+export default function App() {
+  const [show, setShow] = useState(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="d-grid gap-2">
+      <button variant="primary" size="lg" onClick={() => setShow(!show)}>
+        {show ? "Hide Profile" : "Show Profile"}
+      </button>
+      {show && <Profile />}
     </div>
   );
 }
-
-export default App;
